@@ -1,5 +1,6 @@
 package me.moomoo.placeholder;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
@@ -94,6 +95,12 @@ public class Main extends PlaceholderExpansion {
             if(ping > 500){
                 return ChatColor.DARK_RED + String.valueOf(ping);
             }
+        }
+        if(identifier.equals("tps")){
+            double tps = Bukkit.getServer().getTPS()[0];
+            double roundOff = Math.round(tps * 100.0) / 100.0;
+
+            return (tps > 17.0D ? "§a" : (tps > 13.0D ? "§e" : (tps > 5.0D ? "§c" : "§4"))) + (tps > 20.0D ? "" : "") + String.format("%.2f", Math.min((double)Math.round(tps * 100.0D) / 100.0D, 20.0D));
         }
 
 //        // %example_placeholder2%

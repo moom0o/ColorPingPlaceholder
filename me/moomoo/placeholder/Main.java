@@ -83,24 +83,17 @@ public class Main extends PlaceholderExpansion {
         // %example_placeholder1%
         if(identifier.equals("ping")){
             int ping = ((CraftPlayer) player).getHandle().ping;
-            if(ping < 150){
-                return ChatColor.GREEN + String.valueOf(ping);
-            }
-            if(ping > 150 && ping < 250){
-                return ChatColor.YELLOW + String.valueOf(ping);
-            }
-            if(ping > 250 && ping < 500){
-                return ChatColor.RED + String.valueOf(ping);
-            }
-            if(ping > 500){
-                return ChatColor.DARK_RED + String.valueOf(ping);
-            }
+            return (ping < 150 ? "§a" : (ping < 250 ? "§e" : (ping < 500 ? "§c" : "§4"))) + (ping > 20.0D ? "" : "") + ping;
         }
         if(identifier.equals("tps")){
             double tps = Bukkit.getServer().getTPS()[0];
             double roundOff = Math.round(tps * 100.0) / 100.0;
 
             return (tps > 17.0D ? "§a" : (tps > 13.0D ? "§e" : (tps > 5.0D ? "§c" : "§4"))) + (tps > 20.0D ? "" : "") + String.format("%.2f", Math.min((double)Math.round(tps * 100.0D) / 100.0D, 20.0D));
+        }
+        if(identifier.equals("players")){
+            int players = Bukkit.getOnlinePlayers().size();
+            return (players > 10 ? "§a" : (players > 6 ? "§f" : "§8")) + players;
         }
 
 //        // %example_placeholder2%

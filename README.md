@@ -8,5 +8,7 @@
 
 
 %1b1t_players% colored players (should not be used if big server)
+
+
 Import PlaceholderAPI jar into IDE if editing
 <img src="https://read-my-man.ga/L9kvVwnoPZ.png">

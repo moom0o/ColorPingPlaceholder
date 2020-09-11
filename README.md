@@ -1,4 +1,4 @@
-# ColorPingPlaceholder
+# ColoredPlaceholders
 
 # Placeholders
 %1b1t_ping% colored ping
